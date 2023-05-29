@@ -13,6 +13,10 @@ phases:
       - dotnet build
       - echo Build started on `date`
       - dotnet publish -c release -o ./build_output
+  
+  test:
+    commands:
+      - dotnet test
 
 artifacts:
   files:
