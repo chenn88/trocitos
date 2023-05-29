@@ -3,7 +3,7 @@ version: 0.2
 phases:
   install:
     commands:
-      - curl -O https://download.visualstudio.microsoft.com/download/pr/1b0ca65c-c3b6-45d2-bc39-8597fe764364/1ce0bf0839b989ad8e8fb371ad720e25/dotnet-sdk-6.0.408-linux-x64.tar.gz
+      - curl -O https://download.visualstudio.microsoft.com/download/pr/dd7d2255-c9c1-4c6f-b8ad-6e853d6bb574/c8e1b5f47bf17b317a84487491915178/dotnet-sdk-6.0.408-linux-x64.tar.gz
       - sudo tar -zxvf dotnet-sdk-6.0.408-linux-x64.tar.gz -C /root/.dotnet
       - echo Restore started on `date`
       - dotnet restore trocitos.csproj
