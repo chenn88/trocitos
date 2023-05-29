@@ -12,12 +12,9 @@ phases:
     commands:
       - dotnet build
       - echo Build started on `date`
+      - dotnet test
       - dotnet publish -c release -o ./build_output
   
-  test:
-    commands:
-      - dotnet test
-
 artifacts:
   files:
     - '**/*'
