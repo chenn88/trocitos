@@ -12,10 +12,10 @@ phases:
     commands:
       - dotnet build
       - echo Build started on `date`
-      - dotnet publish -c release -o ./build_output trocitos.csproj
+      - dotnet publish -c release -o ./build_output
 
 artifacts:
   files:
-    - ./**/*
+    - ./**
   
   
