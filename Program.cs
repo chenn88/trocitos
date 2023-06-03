@@ -1,7 +1,32 @@
+using Microsoft.EntityFrameworkCore;
+using trocitos.Models;
+
+
+
+
 var builder = WebApplication.CreateBuilder(args);
 
+var connectionString = builder.Configuration.GetConnectionString("TrocitosDbConnection") ?? throw new InvalidOperationException("Connection string 'TrocitosDbConnecion' not found.");
+
 // Add services to the container.
+builder.Services.AddControllers();
 builder.Services.AddRazorPages();
+
+//Adding DB context
+
+
+builder.Services.AddDbContext<TrocitosDbContext>(options =>
+{
+    options.UseMySql(
+        connectionString,
+        new MySqlServerVersion(new Version(8, 0, 32))
+    );
+});
+
+
+
+
+
 
 var app = builder.Build();
 
