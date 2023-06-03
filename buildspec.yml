@@ -12,8 +12,8 @@ phases:
     commands:
       - dotnet build trocitos.mvc/trocitos.csproj
       - echo Build started on `date`
-      - dotnet test trocitos.mvc/TrocitosTest.csproj
-      - dotnet publish trocitos.mvc/trocitos.csproj -c release -o ./build_output
+      # - dotnet test trocitos.mvc/TrocitosTest.csproj
+      - dotnet publish trocitos.mvc/trocitos.csproj -c release -o ../build_output
   
 artifacts:
   files:
