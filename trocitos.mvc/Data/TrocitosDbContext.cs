@@ -14,7 +14,4 @@ public class TrocitosDbContext : DbContext
 
 
     public DbSet<Reservation> Reservations { get; set; } = null!;
-    public DbSet<Reserver> Reservers { get; set; } = null!;
-
-
 }

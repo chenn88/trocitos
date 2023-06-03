@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace trocitos.Data.Migrations
 {
     [DbContext(typeof(TrocitosDbContext))]
-    [Migration("20230603173011_InitialCreate")]
+    [Migration("20230603182550_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -29,11 +29,20 @@ namespace trocitos.Data.Migrations
                     b.Property<bool>("Cancellation")
                         .HasColumnType("tinyint(1)");
 
+                    b.Property<string>("Email")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("FirstName")
+                        .HasColumnType("longtext");
+
                     b.Property<bool>("HighChairRequired")
                         .HasColumnType("tinyint(1)");
 
                     b.Property<bool>("Outside")
                         .HasColumnType("tinyint(1)");
+
+                    b.Property<string>("PhoneNo")
+                        .HasColumnType("longtext");
 
                     b.Property<DateTime>("ReservationDate")
                         .HasColumnType("datetime(6)");
@@ -44,35 +53,12 @@ namespace trocitos.Data.Migrations
                     b.Property<TimeOnly>("RsvStart")
                         .HasColumnType("time(6)");
 
-                    b.HasKey("ReservationId");
-
-                    b.ToTable("Reservations");
-                });
-
-            modelBuilder.Entity("trocitos.Models.Reserver", b =>
-                {
-                    b.Property<int>("ReserverId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<string>("Email")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("FirstName")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("PhoneNo")
-                        .HasColumnType("longtext");
-
-                    b.Property<int>("ReservationId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Surname")
                         .HasColumnType("longtext");
 
-                    b.HasKey("ReserverId");
+                    b.HasKey("ReservationId");
 
-                    b.ToTable("Reservers");
+                    b.ToTable("Reservations");
                 });
 #pragma warning restore 612, 618
         }
