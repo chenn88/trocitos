@@ -6,7 +6,7 @@ phases:
       - curl -O https://download.visualstudio.microsoft.com/download/pr/dd7d2255-c9c1-4c6f-b8ad-6e853d6bb574/c8e1b5f47bf17b317a84487491915178/dotnet-sdk-6.0.408-linux-x64.tar.gz
       - sudo tar -zxvf dotnet-sdk-6.0.408-linux-x64.tar.gz -C /root/.dotnet
       - echo Restore started on `date`
-      - dotnet restore trocitos.csproj
+      - dotnet restore trocitos.mvc/trocitos.csproj
       
   build:
     commands:
