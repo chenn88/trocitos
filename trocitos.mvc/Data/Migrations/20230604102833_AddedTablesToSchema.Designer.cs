@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -9,9 +10,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace trocitos.Data.Migrations
 {
     [DbContext(typeof(TrocitosDbContext))]
-    partial class TrocitosDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230604102833_AddedTablesToSchema")]
+    partial class AddedTablesToSchema
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -56,45 +58,7 @@ namespace trocitos.Data.Migrations
 
                     b.HasKey("ReservationId");
 
-                    b.HasIndex("TableNo");
-
                     b.ToTable("Reservations");
-                });
-
-            modelBuilder.Entity("trocitos.mvc.Models.Table", b =>
-                {
-                    b.Property<int>("TableNo")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<bool>("Booked")
-                        .HasColumnType("tinyint(1)");
-
-                    b.Property<int>("Capacity")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Location")
-                        .HasColumnType("int");
-
-                    b.HasKey("TableNo");
-
-                    b.ToTable("Tables");
-                });
-
-            modelBuilder.Entity("trocitos.mvc.Models.Reservation", b =>
-                {
-                    b.HasOne("trocitos.mvc.Models.Table", "Table")
-                        .WithMany("Reservations")
-                        .HasForeignKey("TableNo")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Table");
-                });
-
-            modelBuilder.Entity("trocitos.mvc.Models.Table", b =>
-                {
-                    b.Navigation("Reservations");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,9 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace trocitos.Models
+namespace trocitos.mvc.Models
 {
     public class Reservation
     {
@@ -12,12 +7,15 @@ namespace trocitos.Models
         public string? Surname { get; set; }
         public string? PhoneNo { get; set; }
         public string? Email { get; set; }
+        public int PartySize { get; set; }
         public DateTime ReservationDate { get; set; }
         public TimeOnly RsvStart { get; set; }
         public TimeOnly RsvEnd { get; set; }
-        public bool HighChairRequired { get; set; }
-        public bool Outside { get; set; }
+        public int TableNo { get; set; }
         public bool Cancellation { get; set; }
+
+        public Table? Table { get; set; }
+
     }
 
 }

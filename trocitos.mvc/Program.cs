@@ -1,8 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using trocitos.Models;
-
-
-
+using trocitos.mvc.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,10 +19,6 @@ builder.Services.AddDbContext<TrocitosDbContext>(options =>
         new MySqlServerVersion(new Version(8, 0, 32))
     );
 });
-
-
-
-
 
 
 var app = builder.Build();
