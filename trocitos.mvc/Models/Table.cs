@@ -7,7 +7,7 @@ namespace trocitos.mvc.Models
     {
         [Key]
         public int TableNo { get; set; }
-        public int Location { get; set; }
+        public string? Location { get; set; }
         public int Capacity { get; set; }
         public bool Booked { get; set; }
 

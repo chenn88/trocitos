@@ -14,7 +14,7 @@ public class TrocitosDbContext : DbContext
 
 
     public DbSet<Reservation> Reservations { get; set; } = null!;
-    public DbSet<Table> Tables { get; set; } = null!;
+    public DbSet<Table> TableCatalogue { get; set; } = null!;
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
