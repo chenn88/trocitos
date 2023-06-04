@@ -7,6 +7,7 @@ var connectionString = builder.Configuration.GetConnectionString("TrocitosDbConn
 
 // Add services to the container.
 builder.Services.AddControllers();
+builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 
 //Adding DB context
@@ -37,6 +38,13 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
+
+var logger = app.Services.GetRequiredService<ILogger<Program>>();
+logger.LogInformation("Application started.");
 
 app.MapRazorPages();
 

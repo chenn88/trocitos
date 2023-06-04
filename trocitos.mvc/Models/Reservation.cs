@@ -13,7 +13,6 @@ namespace trocitos.mvc.Models
         public TimeOnly RsvEnd { get; set; }
         public int TableNo { get; set; }
         public bool Cancellation { get; set; }
-
         public Table? Table { get; set; }
 
     }
