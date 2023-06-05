@@ -9,7 +9,6 @@ namespace trocitos.mvc.Models
         public int TableNo { get; set; }
         public string? Location { get; set; }
         public int Capacity { get; set; }
-        public bool Booked { get; set; }
 
         public List<Reservation> Reservations { get; set; }
 
