@@ -10,10 +10,12 @@ phases:
       
   build:
     commands:
+      - dotnet tool install --global trx2junit
       - dotnet build trocitos.mvc/trocitos.csproj
       - echo Build started on `date`
       - dotnet test trocitos.test/TrocitosTest.csproj --logger "trx;LogFileName=test_results.xml"
       - dotnet publish trocitos.mvc/trocitos.csproj -c release -o ./build_output
+      - trx2junit TestResults.trx
   
 artifacts:
   files:
@@ -24,7 +26,8 @@ artifacts:
 reports: 
   dotnetTests:
     files:
-      - '**/*'
+      - '**/*.xml'
+      - file-format: JUNITXML
     base-directory: './trocitos.test/TestResults'
   
   
