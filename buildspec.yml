@@ -20,14 +20,13 @@ phases:
 artifacts:
   files:
     - '**/*'
-  
   base-directory: './build_output'
 
 reports: 
   dotnetTests:
     files:
       - '**/*.xml'
-      - file-format: JUNITXML
+    - file-format: JUNITXML
     base-directory: './trocitos.test/TestResults'
   
   
