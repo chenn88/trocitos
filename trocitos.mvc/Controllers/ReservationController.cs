@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Globalization;
-using System.Linq.Dynamic;
 using trocitos.mvc.Models;
 
 namespace trocitos.mvc.Controllers
@@ -42,7 +41,7 @@ namespace trocitos.mvc.Controllers
                 TimeOnly endTimeObj = startTimeObj.Add(TimeSpan.FromHours(2.5));
 
                 var availableTables = _context.TableCatalogue
-                    .Where(t => t.Capacity >= capacity && t.Location.ToLower() == location.ToLower())
+                    .Where(t => t.Capacity >= capacity && (t.Location == null || t.Location.ToLower() == location.ToLower()))
                     .Select(t => t.TableNo)
                     .ToList();
 
@@ -86,7 +85,7 @@ namespace trocitos.mvc.Controllers
             TimeOnly rsvEnd = rsvStart.Add(TimeSpan.FromHours(2.5));
 
             var availableTables = _context.TableCatalogue
-                .Where(t => t.Capacity >= capacity && t.Location.ToLower() == location.ToLower())
+                .Where(t => t.Capacity >= capacity && (t.Location == null || t.Location.ToLower() == location.ToLower()))
                 .OrderBy(t => Math.Abs(t.Capacity - capacity))
                 .Select(t => t.TableNo)
                 .ToList();
