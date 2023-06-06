@@ -12,7 +12,7 @@ phases:
     commands:
       - dotnet build trocitos.mvc/trocitos.csproj
       - echo Build started on `date`
-      - dotnet test trocitos.test/TrocitosTest.csproj
+      - dotnet test trocitos.test/TrocitosTest.csproj --logger "trx;LogFileName=test_results.xml"
       - dotnet publish trocitos.mvc/trocitos.csproj -c release -o ./build_output
   
 artifacts:
@@ -21,5 +21,10 @@ artifacts:
   
   base-directory: './build_output'
 
+reports: 
+  dotnetTests:
+    files:
+      - '**/*'
+    base-directory: './trocitos.test/TestResults'
   
   
