@@ -1,0 +1,14 @@
+@{
+    ViewData["Title"] = "Cancel Reservation";
+}
+
+
+<form id="cancelReservationForm">
+    <label for="reservationId">Reservation ID:</label><br>
+    <input type="number" id="reservationId" name="reservationId" required><br>
+    <label for="contactInfo">Phone Number or Email:</label><br>
+    <input type="text" id="contactInfo" name="contactInfo" required><br>
+    <button type="button" id="checkBtn">Check Reservation</button>
+    <button type="button" id="cancelBtn" style="display:none;">Cancel Reservation</button>
+    <div id="message"></div>
+</form>

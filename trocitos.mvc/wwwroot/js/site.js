@@ -72,15 +72,55 @@
             success: function (data) {
                 if (data.success) {
                     $("#availabilityMessage").html("<p style='color: green;'>" + data.message + "</p>");
-                    $("#bookingForm").hide(); // hide booking form
+                    $("#bookingForm").hide();
                 } else {
                     $("#availabilityMessage").html("<p style='color: red;'>" + data.message + "</p>");
                 }
             }
         });
     });
-});
 
+    $("#checkBtn").click(function () {
+        var reservationId = $("#reservationId").val();
+        var contactInfo = $("#contactInfo").val();
+
+        $.get(`/Reservation/ReservationExists?reservationId=${reservationId}&contactInfo=${contactInfo}`, function (data) {
+            if (data.exists) {
+                $("#message").text("Reservation found. You can now cancel.");
+                $("#cancelBtn").show();
+            } else {
+                $("#message").text("Reservation not found");
+                $("#cancelBtn").hide();
+            }
+        });
+    });
+
+    $("#cancelBtn").click(function () {
+        var reservationId = $("#reservationId").val();
+        var contactInfo = $("#contactInfo").val();
+
+        cancelReservation(reservationId, contactInfo);
+    });
+
+    function cancelReservation(reservationId, contactInfo) {
+        $.ajax({
+            type: "PUT",
+            url: "/Reservation/CancelReservation",
+            data: {
+                reservationId: reservationId,
+                contactInfo: contactInfo
+            },
+            success: function (data) {
+                console.log("Cancellation success:", data);
+                $("#message").text(data.message);
+            },
+            error: function (error) {
+                console.error('Cancellation error:', error);
+            },
+        });
+    }
+
+});
 
 
 (function () {

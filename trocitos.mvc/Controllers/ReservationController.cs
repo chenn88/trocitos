@@ -20,6 +20,11 @@ namespace trocitos.mvc.Controllers
             return View();
         }
 
+        public IActionResult Cancellation()
+        {
+            return View();
+        }
+
         [HttpGet]
         public IActionResult CheckAvailability(string date, string startTime, int capacity, string location)
         {
@@ -52,7 +57,7 @@ namespace trocitos.mvc.Controllers
 
                 var overlappingReservation = _context.Reservations
                     .Where(r => r.ReservationDate.Date == dateObj.Date && availableTables.Contains(r.TableNo)
-                                && ((r.RsvStart < endTimeObj) && (r.RsvEnd > startTimeObj)))
+                                && ((r.RsvStart < endTimeObj) && (r.RsvEnd > startTimeObj)) && r.Cancellation == false)
                     .Select(r => r.TableNo)
                     .ToList();
 
@@ -96,7 +101,7 @@ namespace trocitos.mvc.Controllers
             }
 
             var overlappingReservations = _context.Reservations
-                .Where(r => r.ReservationDate == date && availableTables.Contains(r.TableNo) && ((r.RsvStart < rsvEnd) && (r.RsvEnd > rsvStart)))
+                .Where(r => r.ReservationDate == date && availableTables.Contains(r.TableNo) && ((r.RsvStart < rsvEnd) && (r.RsvEnd > rsvStart)) && r.Cancellation == false)
                 .Select(r => r.TableNo)
                 .ToList();
 
@@ -130,6 +135,53 @@ namespace trocitos.mvc.Controllers
             _context.SaveChanges();
 
             return Json(new { success = true, message = "Reservation has been successfully booked." });
+        }
+
+        [HttpGet]
+        public IActionResult ReservationExists(int reservationId, string contactInfo)
+        {
+            var reservation = _context.Reservations.FirstOrDefault(r => r.ReservationId == reservationId && (r.PhoneNo == contactInfo || r.Email == contactInfo));
+
+            if (reservation != null)
+            {
+                return Json(new { exists = true });
+            }
+            else
+            {
+                return Json(new { exists = false });
+            }
+        }
+
+
+        [HttpPut]
+        public IActionResult CancelReservation(int reservationId, string contactInfo)
+        {
+            try
+            {
+                var reservationToCancel = _context.Reservations.FirstOrDefault(r => r.ReservationId == reservationId && (r.PhoneNo == contactInfo || r.Email == contactInfo));
+
+                if (reservationToCancel == null)
+                {
+                    return Json(new { success = false, message = "No reservation found with provided Reservation ID and contact information." });
+                }
+
+                if (reservationToCancel.Cancellation)
+                {
+                    return Json(new { success = false, message = "This reservation has already been cancelled." });
+                }
+
+                reservationToCancel.Cancellation = true;
+
+                _context.Reservations.Update(reservationToCancel);
+                _context.SaveChanges();
+
+                return Json(new { success = true, message = "Reservation has been successfully cancelled." });
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return StatusCode(500, "An error occurred while processing your request. Please try again later.");
+            }
         }
     }
 
