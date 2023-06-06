@@ -15,7 +15,7 @@ phases:
       - echo Build started on `date`
       - dotnet test trocitos.test/TrocitosTest.csproj --logger "trx;LogFileName=./trocitos.test/TestResults/test_results.trx"
       - dotnet publish trocitos.mvc/trocitos.csproj -c release -o ./build_output
-      - trx2junit TestResults.trx
+      - trx2junit ./trocitos.test/TestResults/test_results.trx
   
 artifacts:
   files:
