@@ -12,7 +12,6 @@ builder.Services.AddRazorPages();
 
 //Adding DB context
 
-
 builder.Services.AddDbContext<TrocitosDbContext>(options =>
 {
     options.UseMySql(

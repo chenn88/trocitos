@@ -3,60 +3,70 @@
 }
 
 @model trocitos.mvc.Models.Reservation
-<h1>Reservation</h1>
-<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 shadow-sm px-3 mb-3 mx-auto">
-    <div id="availabilityCheckForm">
-        <h2>Check availability</h2>
-        <form id="reservationForm" class="needs-validation" novalidate>
-            <label for="date" class="form-label">Date:</label><br>
-            <div class="input-group">
-                <input type="date" class="form-control" id="date" name="date" required><br>
-                <div class="invalid-feedback">Please enter a date</div>
-            </div>
-            <label for="startTime" class="form-label">Start Time:</label><br>
-            <div class="input-group">
-                <select class="form-control" id="startTime" name="startTime" required></select>
-                <div class="invalid-feedback">Please enter a time</div>
-            </div>
 
-            <label for="capacity" class="form-label">Number of people:</label><br>
-            <div class="input-group">
-                <input type="number" class="form-control" id="capacity" name="capacity" required><br>
-                <div class="invalid-feedback">Please enter the number of people</div>
-            </div>
-            <div>
-                <label for="location" class="form-label">Location:</label><br>
-                <select id="location" class="form-control" name="location">
-                    <option value="outside">outside</option>
-                    <option value="ground floor">ground floor</option>
-                    <option value="first floor">first floor</option>
-                </select><br><br>
-            </div>
-            <input type="submit" class="btn btn-primary" value="Check Availability">
-        </form>
-        <div id="availabilityMessage"></div>
-    </div>
+<div id="reservation-page-container" class="container-fluid">
+    <div class="row">
+        <div id="reservation-page-content" class="col-lg-6 col-md-8 col-sm-10 mx-auto shadow-lg"
+            style="background-color: #E6B17E">
 
-    <div id="bookingForm" style="display:none;">
-        <h2>Complete Reservation</h2>
-        <form id="submitReservationForm">
-            <div>
-                <label for="firstName" class="form-label">First Name:</label><br>
-                <input type="text" id="firstName" class="form-control" name="firstName" required><br>
+            <h1>Reservation</h1>
+            <div class="px-3 mb-3 mx-auto">
+                <div id="availabilityCheckForm" class="row">
+                    <h2>Check availability</h2>
+                    <form id="reservationForm" class="needs-validation" novalidate>
+                        <label for="date" class="form-label">Date:</label><br>
+                        <div class="input-group">
+                            <input type="date" class="form-control" id="date" name="date" required><br>
+                            <div class="invalid-feedback">Please enter a date</div>
+                        </div>
+                        <label for="startTime" class="form-label">Start Time:</label><br>
+                        <div class="input-group">
+                            <select class="form-control" id="startTime" name="startTime" required></select>
+                            <div class="invalid-feedback">Please enter a time</div>
+                        </div>
+
+                        <label for="capacity" class="form-label">Number of people:</label><br>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="capacity" name="capacity" required><br>
+                            <div class="invalid-feedback">Please enter the number of people</div>
+                        </div>
+                        <div>
+                            <label for="location" class="form-label">Location:</label><br>
+                            <select id="location" class="form-control" name="location">
+                                <option value="outside">outside</option>
+                                <option value="ground floor">ground floor</option>
+                                <option value="first floor">first floor</option>
+                            </select><br><br>
+                        </div>
+                        <input type="submit" class="btn btn-primary" value="Check Availability">
+                    </form>
+                    <br>
+                    <div id="availabilityMessage"></div>
+                </div>
+
+                <div id="bookingForm" class="row mb-3" style="display:none;">
+                    <h2>Complete Reservation</h2>
+                    <form id="submitReservationForm">
+                        <div>
+                            <label for="firstName" class="form-label">First Name:</label><br>
+                            <input type="text" id="firstName" class="form-control" name="firstName" required><br>
+                        </div>
+                        <div>
+                            <label for="surname" class=form-label>Surname:</label><br>
+                            <input type="text" id="surname" class="form-control" name="surname" required><br>
+                        </div>
+                        <div>
+                            <label for="phoneNo" class="form-label">Phone Number:</label><br>
+                            <input type="text" class="form-control" id="phoneNo" name="phoneNo" required><br>
+                        </div>
+                        <div>
+                            <label for="email" class="form-label">Email:</label><br>
+                            <input type="email" id="email" class="form-control" name="email" required><br>
+                        </div>
+                        <input type="submit" class="btn btn-primary" value="Book">
+                    </form>
+                </div>
             </div>
-            <div>
-                <label for="surname" class=form-label>Surname:</label><br>
-                <input type="text" id="surname" class="form-control" name="surname" required><br>
-            </div>
-            <div>
-                <label for="phoneNo" class="form-label">Phone Number:</label><br>
-                <input type="text" class="form-control" id="phoneNo" name="phoneNo" required><br>
-            </div>
-            <div>
-                <label for="email" class="form-label">Email:</label><br>
-                <input type="email" id="email" class="form-control" name="email" required><br>
-            </div>
-            <input type="submit" class="btn btn-primary" value="Book">
-        </form>
+        </div>
     </div>
 </div>

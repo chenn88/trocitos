@@ -114,6 +114,7 @@ namespace trocitos.mvc.Controllers
                     return Json(new { success = false, message = "There is a reservation already in the requested time slot." });
                 }
             }
+
             int tableToBook = availableTables.First();
 
             var newReservation = new Reservation

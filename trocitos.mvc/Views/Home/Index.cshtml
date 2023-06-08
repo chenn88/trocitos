@@ -2,9 +2,18 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-    <p>Hello World! This is to confirm that the deployment is working for this application</p>
-    <p>Test to confirm that pipeline is working afte git repo migration.</p>
+<div id="home-page-container" class="container-fluid text-center vh-100">
+    <div class="row">
+        <div id="home-page-content" class="col-lg-6 col-md-8 col-sm-10 mx-auto shadow-lg text-center"
+            style="background-color: #E6B17E">
+            <h1 class="display-4">Welcome to Trocitos</h1>
+            <img class="trocitos-page-logo img-fluid" src="/images/trocitos-logo.jpg">
+            <div class="w-50 mx-auto mt-5">
+                <a asp-area="" asp-controller="Reservation" asp-action="Index" type="button"
+                    class="landing-page-btn btn w-50 me-2">Make
+                    a reservation</a>
+            </div>
+
+        </div>
+    </div>
 </div>

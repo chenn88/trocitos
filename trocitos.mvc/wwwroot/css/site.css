@@ -8,7 +8,11 @@ html {
   }
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+.btn:focus,
+.btn:active:focus,
+.btn-link.nav-link:focus,
+.form-control:focus,
+.form-check-input:focus {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
@@ -19,4 +23,91 @@ html {
 
 body {
   margin-bottom: 60px;
+}
+
+#home-page-container {
+  background: url('/images/restaurant-table.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  min-height: 100vh;
+}
+
+#reservation-page-container {
+  background: url('/images/restaurant-table.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  min-height: 100vh;
+}
+
+.trocitos-page-logo {
+  width: 250px;
+  height: 250px;
+}
+
+.navbar {
+
+  background-color:
+    #E6B17E;
+
+}
+
+#home-page-content {
+
+  opacity: .9;
+  border-radius: 10px;
+  margin-top: 100px;
+  height: 50vh;
+  color: #000000;
+
+}
+
+#reservation-page-content {
+
+  opacity: .9;
+  border-radius: 10px;
+  margin-top: 100px;
+  color: #000000;
+
+}
+
+.nav-item {
+
+  font-size: 18px;
+  font-weight: 500;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: solid 2px #E6B17E;
+  border-radius: 12px;
+
+
+}
+
+.nav-item:hover {
+
+  font-size: 18px;
+  border: solid 2px #000000;
+
+}
+
+.landing-page-btn {
+
+  font-size: 18px;
+  font-weight: 500;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: solid 2px #000000;
+  border-radius: 12px;
+
+}
+
+.landing-page-btn:hover {
+
+
+  background-color: #000000;
+  color: #E6B17E;
+
 }
