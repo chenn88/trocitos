@@ -2,7 +2,7 @@
 
     var openingTime = 10;
     var closingTime = 21;
-    var timeSelect = $('#startTime');
+    var timeSelect = $('#start-time');
 
     for (var i = openingTime * 2; i < closingTime * 2; i++) {
         var hour = Math.floor(i / 2);
@@ -17,7 +17,7 @@
         timeSelect.append(new Option(hour + ':' + minutes, hour + ':' + minutes));
     }
 
-    $("#reservationForm").submit(function (event) {
+    $("#reservation-form").submit(function (event) {
         event.preventDefault();
 
         var form = $(this);
@@ -35,11 +35,11 @@
             },
             success: function (data) {
                 if (data.success) {
-                    $("#availabilityMessage").html("<p style='color: green;'>" + data.message + "</p>");
-                    $("#bookingForm").show();
+                    $("#availability-message").html("<p style='color: green;'>" + data.message + "</p>");
+                    $("#booking-form").show();
                 } else {
-                    $("#availabilityMessage").html("<p style='color: red;'>" + data.message + "</p>");
-                    $("#bookingForm").hide();
+                    $("#availability-message").html("<p style='color: red;'>" + data.message + "</p>");
+                    $("#booking-form").hide();
                 }
             },
 
@@ -50,7 +50,7 @@
         });
     });
 
-    $("#submitReservationForm").submit(function (event) {
+    $("#submit-reservation-form").submit(function (event) {
         event.preventDefault();
 
         var form = $(this);
@@ -64,40 +64,40 @@
                 phoneNo: form.find('input[name="phoneNo"]').val(),
                 email: form.find('input[name="email"]').val(),
                 date: $('#date').val(),
-                startTime: $('#startTime').val(),
-                endTime: $('#endTime').val(),
+                startTime: $('#start-time').val(),
+                endTime: $('#end-time').val(),
                 capacity: $('#capacity').val(),
                 location: $('#location').val()
             },
             success: function (data) {
                 if (data.success) {
-                    $("#availabilityMessage").html("<p style='color: green;'>" + data.message + "</p>");
+                    $("#availability-message").html("<p style='color: green;'>" + data.message + "</p>");
                     $("#bookingForm").hide();
                 } else {
-                    $("#availabilityMessage").html("<p style='color: red;'>" + data.message + "</p>");
+                    $("#availability-message").html("<p style='color: red;'>" + data.message + "</p>");
                 }
             }
         });
     });
 
     $("#checkBtn").click(function () {
-        var reservationId = $("#reservationId").val();
-        var contactInfo = $("#contactInfo").val();
+        var reservationId = $("#reservation-id").val();
+        var contactInfo = $("#contact-info").val();
 
         $.get(`/Reservation/ReservationExists?reservationId=${reservationId}&contactInfo=${contactInfo}`, function (data) {
             if (data.exists) {
                 $("#message").text("Reservation found. You can now cancel.");
-                $("#cancelBtn").show();
+                $("#cancel-btn").show();
             } else {
                 $("#message").text("Reservation not found");
-                $("#cancelBtn").hide();
+                $("#cancel-btn").hide();
             }
         });
     });
 
-    $("#cancelBtn").click(function () {
-        var reservationId = $("#reservationId").val();
-        var contactInfo = $("#contactInfo").val();
+    $("#cancel-btn").click(function () {
+        var reservationId = $("#reservation-id").val();
+        var contactInfo = $("#contact-info").val();
 
         cancelReservation(reservationId, contactInfo);
     });

@@ -6,14 +6,17 @@
 
 <div id="reservation-page-container" class="container-fluid">
     <div class="row">
-        <div id="reservation-page-content" class="col-lg-6 col-md-8 col-sm-10 mx-auto shadow-lg"
+        <div id="reservation-page-content" class="col-lg-4 col-md-8 col-sm-10 mx-auto shadow-lg mb-5"
             style="background-color: #E6B17E">
-
-            <h1>Reservation</h1>
+            <div class="text-center">
+                <h1>Reserve a table</h1>
+                <img class="trocitos-page-logo img-fluid" src="/images/trocitos-logo.jpg">
+            </div>
             <div class="px-3 mb-3 mx-auto">
-                <div id="availabilityCheckForm" class="row">
-                    <h2>Check availability</h2>
-                    <form id="reservationForm" class="needs-validation" novalidate>
+                <div id="availability-check-form" class="row">
+                    @* <h2>Check availability</h2> *@
+                    <p class="my-5">Fill in the details below to check for availability:</p>
+                    <form id="reservation-form" class="needs-validation" novalidate>
                         <label for="date" class="form-label">Date:</label><br>
                         <div class="input-group">
                             <input type="date" class="form-control" id="date" name="date" required><br>
@@ -21,7 +24,7 @@
                         </div>
                         <label for="startTime" class="form-label">Start Time:</label><br>
                         <div class="input-group">
-                            <select class="form-control" id="startTime" name="startTime" required></select>
+                            <select class="form-control" id="start-time" name="startTime" required></select>
                             <div class="invalid-feedback">Please enter a time</div>
                         </div>
 
@@ -38,18 +41,20 @@
                                 <option value="first floor">first floor</option>
                             </select><br><br>
                         </div>
-                        <input type="submit" class="btn btn-primary" value="Check Availability">
+                        <div class="text-center">
+                            <input type="submit" class="btn action-btn" value="Check Availability">
+                        </div>
                     </form>
                     <br>
-                    <div id="availabilityMessage"></div>
+                    <div id="availability-message"></div>
                 </div>
 
-                <div id="bookingForm" class="row mb-3" style="display:none;">
+                <div id="booking-form" class="row mb-3" style="display:none;">
                     <h2>Complete Reservation</h2>
-                    <form id="submitReservationForm">
+                    <form id="submit-reservation-form">
                         <div>
                             <label for="firstName" class="form-label">First Name:</label><br>
-                            <input type="text" id="firstName" class="form-control" name="firstName" required><br>
+                            <input type="text" id="first-name" class="form-control" name="firstName" required><br>
                         </div>
                         <div>
                             <label for="surname" class=form-label>Surname:</label><br>
@@ -57,13 +62,15 @@
                         </div>
                         <div>
                             <label for="phoneNo" class="form-label">Phone Number:</label><br>
-                            <input type="text" class="form-control" id="phoneNo" name="phoneNo" required><br>
+                            <input type="text" class="form-control" id="phone-no" name="phoneNo" required><br>
                         </div>
                         <div>
                             <label for="email" class="form-label">Email:</label><br>
                             <input type="email" id="email" class="form-control" name="email" required><br>
                         </div>
-                        <input type="submit" class="btn btn-primary" value="Book">
+                        <div class="text-center">
+                            <input type="submit" class="btn action-btn" value="Book">
+                        </div>
                     </form>
                 </div>
             </div>

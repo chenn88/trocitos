@@ -66,10 +66,10 @@ namespace trocitos.mvc.Controllers
 
                 if (!availableTables.Any())
                 {
-                    return Json(new { success = false, message = "There is a reservation already in the requested time slot." });
+                    return Json(new { success = false, message = "There is a reservation already in the requested time slot. Please try again" });
                 }
 
-                return Json(new { success = true, message = "Table is available." });
+                return Json(new { success = true, message = "A table is available! Please fill in details below to reserve." });
             }
             catch (Exception ex)
             {
@@ -134,6 +134,8 @@ namespace trocitos.mvc.Controllers
 
             _context.Reservations.Add(newReservation);
             _context.SaveChanges();
+
+
 
             return Json(new { success = true, message = "Reservation has been successfully booked." });
         }
