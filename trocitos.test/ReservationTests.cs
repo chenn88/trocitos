@@ -67,7 +67,7 @@ namespace Trocitos.Tests
 
 
             Assert.True(success);
-            Assert.Equal("Table is available.", message);
+            Assert.Equal("A table is available! Please fill in details below to reserve.", message);
 
 
         }
