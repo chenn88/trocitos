@@ -184,7 +184,7 @@ namespace Trocitos.Tests
             string? message = messageProperty.GetValue(jsonResult?.Value, null) as string;
 
             Assert.True(success);
-            Assert.Equal("Reservation has been successfully booked.", message);
+            Assert.Equal("Reservation has been successfully booked:", message);
             mockContext.Verify(c => c.Reservations.Add(It.IsAny<Reservation>()), Times.Once);
             mockContext.Verify(c => c.SaveChanges(), Times.Once);
         }

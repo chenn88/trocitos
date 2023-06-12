@@ -71,8 +71,11 @@
             },
             success: function (data) {
                 if (data.success) {
-                    $("#availability-message").html("<p style='color: green;'>" + data.message + "</p>");
-                    $("#bookingForm").hide();
+                    $("#confirmation-message").html(`<p>${data.message} <br> Reservation number: ${data.reservationId} <br> Booking date: ${data.bookingDate} <br> Start time: ${data.startTime} <br> Number of people: ${data.partySize}</p>`);
+                    $("#availability-message").hide();
+                    $("#booking-form").hide();
+                    $("#availability-check-form").hide();
+
                 } else {
                     $("#availability-message").html("<p style='color: red;'>" + data.message + "</p>");
                 }
@@ -80,13 +83,13 @@
         });
     });
 
-    $("#checkBtn").click(function () {
+    $("#check-btn").click(function () {
         var reservationId = $("#reservation-id").val();
         var contactInfo = $("#contact-info").val();
 
         $.get(`/Reservation/ReservationExists?reservationId=${reservationId}&contactInfo=${contactInfo}`, function (data) {
             if (data.exists) {
-                $("#message").text("Reservation found. You can now cancel.");
+                $("#message").text("Reservation found. Please click 'Cancel Reservation' to cancel.");
                 $("#cancel-btn").show();
             } else {
                 $("#message").text("Reservation not found");

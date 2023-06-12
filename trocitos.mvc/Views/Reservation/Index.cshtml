@@ -10,11 +10,16 @@
             style="background-color: #E6B17E">
             <div class="text-center">
                 <h1>Reserve a table</h1>
+
+                <p>Need to cancel a reservation? <a asp-area="" asp-controller="Reservation"
+                        asp-action="Cancellation">Click here</a>
+                </p>
+
                 <img class="trocitos-page-logo img-fluid" src="/images/trocitos-logo.jpg">
             </div>
             <div class="px-3 mb-3 mx-auto">
                 <div id="availability-check-form" class="row">
-                    @* <h2>Check availability</h2> *@
+
                     <p class="my-5">Fill in the details below to check for availability:</p>
                     <form id="reservation-form" class="needs-validation" novalidate>
                         <label for="date" class="form-label">Date:</label><br>
@@ -46,8 +51,10 @@
                         </div>
                     </form>
                     <br>
-                    <div id="availability-message"></div>
+
                 </div>
+
+                <div id="availability-message"></div>
 
                 <div id="booking-form" class="row mb-3" style="display:none;">
                     <h2>Complete Reservation</h2>
@@ -61,7 +68,7 @@
                             <input type="text" id="surname" class="form-control" name="surname" required><br>
                         </div>
                         <div>
-                            <label for="phoneNo" class="form-label">Phone Number:</label><br>
+                            <label for="phone-no" class="form-label">Phone Number:</label><br>
                             <input type="text" class="form-control" id="phone-no" name="phoneNo" required><br>
                         </div>
                         <div>
@@ -73,6 +80,7 @@
                         </div>
                     </form>
                 </div>
+                <div id="confirmation-message"></div>
             </div>
         </div>
     </div>

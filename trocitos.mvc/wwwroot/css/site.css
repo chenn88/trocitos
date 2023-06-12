@@ -43,6 +43,15 @@ body {
   min-height: 100vh;
 }
 
+#cancellation-page-container {
+  background: url('/images/restaurant-table2.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  min-height: 100vh;
+}
+
 .trocitos-page-logo {
   width: 250px;
   height: 250px;
@@ -68,6 +77,15 @@ body {
 #reservation-page-content {
 
   opacity: 97%;
+  border-radius: 10px;
+  margin-top: 100px;
+  color: #000000;
+
+}
+
+#cancellation-page-content {
+
+  opacity: .9;
   border-radius: 10px;
   margin-top: 100px;
   color: #000000;
@@ -114,6 +132,15 @@ body {
 }
 
 #availability-message {
+
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+}
+
+#confirmation-message {
 
   font-size: 20px;
   font-weight: 500;

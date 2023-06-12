@@ -2,13 +2,25 @@
     ViewData["Title"] = "Cancel Reservation";
 }
 
+<div id="cancellation-page-container" class="container-fluid">
+    <div class="row">
+        <div id="cancellation-page-content" class="col-lg-4 col-md-8 col-sm-10 mx-auto shadow-lg mb-5"
+            style="background-color: #E6B17E">
+            <div class="text-center">
+                <h1>Cancel Reservation</h1>
 
-<form id="cancel-reservation-form">
-    <label for="reservationId">Reservation ID:</label><br>
-    <input type="number" id="reservation-id" name="reservationId" required><br>
-    <label for="contactInfo">Phone Number or Email:</label><br>
-    <input type="text" id="contact-info" name="contactInfo" required><br>
-    <button type="button" id="check-btn">Check Reservation</button>
-    <button type="button" id="cancel-btn" style="display:none;">Cancel Reservation</button>
-    <div id="message"></div>
-</form>
+                <img class="trocitos-page-logo img-fluid" src="/images/trocitos-logo.jpg">
+            </div>
+            <form id="cancel-reservation-form">
+                <label for="reservation-id" class="form-label">Reservation ID:</label><br>
+                <input type="number" id="reservation-id" class="form-control" name="reservationId" required><br>
+                <label for="contact-info" class="form-lable">Phone Number or Email:</label><br>
+                <input type="text" id="contact-info" class="form-control" name="contactInfo" required><br>
+                <button type="button" id="check-btn" class="btn action-btn">Check Reservation</button>
+                <button type="button" id="cancel-btn" class="btn action-btn" style="display:none;">Cancel
+                    Reservation</button>
+                <div id="message"></div>
+            </form>
+        </div>
+    </div>
+</div>

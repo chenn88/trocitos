@@ -137,7 +137,15 @@ namespace trocitos.mvc.Controllers
 
 
 
-            return Json(new { success = true, message = "Reservation has been successfully booked." });
+            return Json(new
+            {
+                success = true,
+                message = "Reservation has been successfully booked:",
+                reservationId = newReservation.ReservationId,
+                bookingDate = date.ToString("yyyy-MM-dd"),
+                startTime = rsvStart.ToString(),
+                partySize = capacity
+            });
         }
 
         [HttpGet]
