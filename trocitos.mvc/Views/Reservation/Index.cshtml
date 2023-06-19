@@ -21,6 +21,8 @@
                 <div id="availability-check-form" class="row">
 
                     <p class="my-5">Fill in the details below to check for availability:</p>
+
+                    @* CHECK RESERVATION AVAILABILITY FORM *@
                     <form id="reservation-form" class="needs-validation" novalidate>
                         <label for="date" class="form-label">Date:</label><br>
                         <div class="input-group">
@@ -51,11 +53,15 @@
                         </div>
                     </form>
                     <br>
+                    @* END OF CHECK RESERVATION AVAILABILITY FORM *@
+
 
                 </div>
 
+                @* MESSAGE TO SHOW RESERVATION AVAILABILITY / NON-AVAILABILITY *@
                 <div id="availability-message"></div>
 
+                @* FORM TO SUBMIT RESERVATION *@
                 <div id="booking-form" class="row mb-3" style="display:none;">
                     <h2>Complete Reservation</h2>
                     <form id="submit-reservation-form">
@@ -79,7 +85,10 @@
                             <input type="submit" class="btn action-btn" value="Book">
                         </div>
                     </form>
+                    @* END OF FORM TO SUBMIT RESERVATION *@
                 </div>
+
+                @* MESSAGE TO CONFIRM RESERVATION DETAILS *@
                 <div id="confirmation-message"></div>
             </div>
         </div>

@@ -11,12 +11,19 @@
 
                 <img class="trocitos-page-logo img-fluid" src="/images/trocitos-logo.jpg">
             </div>
+
+            @* CANCELLATION FORM *@
             <form id="cancel-reservation-form">
                 <label for="reservation-id" class="form-label">Reservation ID:</label><br>
                 <input type="number" id="reservation-id" class="form-control" name="reservationId" required><br>
                 <label for="contact-info" class="form-lable">Phone Number or Email:</label><br>
                 <input type="text" id="contact-info" class="form-control" name="contactInfo" required><br>
+
+                @* BUTTON TO CHECK RESERVATION EXISTS *@
+
                 <button type="button" id="check-btn" class="btn action-btn">Check Reservation</button>
+
+                @* BUTTON TO CANCEL RESERVATION *@
                 <button type="button" id="cancel-btn" class="btn action-btn" style="display:none;">Cancel
                     Reservation</button>
                 <div id="message"></div>
