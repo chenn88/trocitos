@@ -3,7 +3,9 @@ using trocitos.mvc.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var connectionString = builder.Configuration.GetConnectionString("TrocitosDbConnection") ?? throw new InvalidOperationException("Connection string 'TrocitosDbConnecion' not found.");
+var connectionString = builder.Configuration["CONNECTION_STRING"] ?? throw new InvalidOperationException("Connection string 'CONNECTION_STRING' not found.");
+
+// var connectionString = builder.Configuration.GetConnectionString("TrocitosDbConnection") ?? throw new InvalidOperationException("Connection string 'TrocitosDbConnecion' not found.");
 
 // Add services to the container.
 builder.Services.AddControllers();
